@@ -18,7 +18,7 @@ export default {
             });
 
             let info = await transporter.sendMail({
-                from: `"Your Name" <${process.env.EMAIL_USER}>`,
+                from: `"Kashyap 👨🏻‍💻" <${process.env.EMAIL_USER}>`,
                 to,
                 subject,
                 text

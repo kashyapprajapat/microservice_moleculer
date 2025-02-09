@@ -1,7 +1,7 @@
 import axios from "axios";
 import dotenv from "dotenv";
 
-dotenv.config(); 
+dotenv.config();
 
 export default {
     name: "meaning",
@@ -13,18 +13,32 @@ export default {
             }
 
             try {
+                const apiKey = process.env.GEMINI_API_KEY;
+                if (!apiKey) {
+                    throw new Error("GEMINI_API_KEY is missing. Check your .env file.");
+                }
+
                 const response = await axios.post(
-                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateText?key=${process.env.GEMINI_API_KEY}`,
+                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
                     {
-                        prompt: { text: `Can you tell me the meaning of the name "${name}"?` },
+                        contents: [{ parts: [{ text: `What is the meaning of the name '${name}'?` }] }]
+                    },
+                    {
+                        headers: { "Content-Type": "application/json" }
                     }
                 );
 
-                const aiResponse = response.data.candidates?.[0]?.output || "No meaning found";
+                // Extract response from AI
+                const aiResponse = response.data.candidates?.[0]?.content?.parts?.[0]?.text || "No meaning found";
                 return { name, meaning: aiResponse };
 
             } catch (error) {
                 console.error("Error fetching name meaning:", error.response?.data || error.message);
+
+                if (error.response?.status === 404) {
+                    return { error: "The requested entity was not found. Ensure your API key and endpoint are correct." };
+                }
+                
                 return { error: "Failed to get name meaning" };
             }
         }

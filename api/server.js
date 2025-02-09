@@ -2,7 +2,7 @@ import express from "express";
 import { ServiceBroker } from "moleculer";
 
 
-const broker = new ServiceBroker({ transporter: "NATS" });
+const broker = new ServiceBroker({ transporter: "TCP" });
 broker.start();
 
 const app = express();

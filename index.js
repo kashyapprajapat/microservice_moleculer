@@ -6,7 +6,7 @@ dotenv.config();
 
 
 const broker = new ServiceBroker({
-    transporter: "NATS"
+    transporter: "TCP"
 });
 
 
