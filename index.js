@@ -1,23 +1,21 @@
 import { ServiceBroker } from "moleculer";
-
-const broker = new ServiceBroker();
-
-// Greet Service.
-broker.createService({
-    name:"saygreet",
-    actions:{
-        sayHey(ctx){
-            return `Hey ${ctx.params.UserName}👋🏻.Glade To see You My Friends 🙋🏻‍♂️ .`
-        }
-    }
-})
+import meaningService from "./services/meaning.service.js";
+import emailService from "./services/email.service.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 
-async function StartMicroservice() {
-    await broker.start();
-    const res = await broker.call('saygreet.sayHey',{ UserName : 'kashyap'});
-    console.log(res);
-    broker.stop();
-}
+const broker = new ServiceBroker({
+    transporter: "NATS"
+});
 
-StartMicroservice();
+
+broker.createService(meaningService);
+broker.createService(emailService);
+
+
+broker.start().then(() => {
+    console.log("Moleculer services started...");
+});
+
+export { broker };
