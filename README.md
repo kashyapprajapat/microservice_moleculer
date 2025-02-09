@@ -8,7 +8,8 @@ This project is a microservices-based system using **Moleculer**, a powerful mic
 
 ---
 
-## Understand Architecture
+## Understand Project Architecture
+![Screenshot 2025-02-09 141331](https://github.com/user-attachments/assets/66c7e98a-5c40-40a7-92bf-d5e2e3a1e16b)
 
 
 
