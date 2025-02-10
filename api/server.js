@@ -1,12 +1,15 @@
 import express from "express";
 import { ServiceBroker } from "moleculer";
 
+import { logRequest } from "./logger.js";
+
 const broker = new ServiceBroker({ transporter: "TCP" });
 broker.start();
 
 const app = express();
 app.use(express.json());
 const PORT = process.env.PORT || 7000;
+app.use(logRequest);
 
 // Home Route 🏡
 app.get("/", (req, res) => {
