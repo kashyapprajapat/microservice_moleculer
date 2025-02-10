@@ -63,5 +63,9 @@ node api/server.js
 ```
 The API Gateway runs on http://localhost:7000.
 
+## Winstone Log Save in Neon PostgressDB
+![Screenshot 2025-02-10 190701](https://github.com/user-attachments/assets/e60ecc2a-34aa-44b8-8cbf-bc6b31eb1635)
+
+
 Made with ❤️ by kashyapprajapat 🚀
 
