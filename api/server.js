@@ -1,7 +1,6 @@
 import express from "express";
 import { ServiceBroker } from "moleculer";
 
-
 const broker = new ServiceBroker({ transporter: "TCP" });
 broker.start();
 
