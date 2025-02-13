@@ -66,6 +66,17 @@ The API Gateway runs on http://localhost:7000.
 ## Winstone Log Save in Neon PostgressDB
 ![Screenshot 2025-02-10 190701](https://github.com/user-attachments/assets/e60ecc2a-34aa-44b8-8cbf-bc6b31eb1635)
 
-
 Made with ❤️ by kashyapprajapat 🚀
+
+
+---
+
+
+## Microservice Communication 💬🗨️
+It means That how each services work to gether and share data in the microserrvice Architecture.
+### Synchronous Communication
+![Syncronus](https://github.com/user-attachments/assets/d6b5a0d1-35e6-4663-af1e-c0c5dc461c52)
+
+### Asynchronous Communication
+![Asyncronuse](https://github.com/user-attachments/assets/24633c48-200d-41a8-939e-37900c0d061c)
 
