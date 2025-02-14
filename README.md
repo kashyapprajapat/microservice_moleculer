@@ -80,3 +80,5 @@ It means That how each services work to gether and share data in the microserrvi
 ### Asynchronous Communication
 ![Asyncronuse](https://github.com/user-attachments/assets/24633c48-200d-41a8-939e-37900c0d061c)
 
+### Hybrid  communication [Syncronus + Asynchronous]
+in this you combine both communication  together to share data with each microservice.
